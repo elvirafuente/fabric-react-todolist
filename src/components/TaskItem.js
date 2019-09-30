@@ -19,12 +19,11 @@ export default function TaskItem({ name, checked, id }) {
   }
 
   const handleTextfieldChange = event =>{
-    const valueName = event.target.value;
+    const value = event.target;
     const newValue = {
       ...inputValue,
-      name: valueName
+      name: value
     };
-    console.log(newValue)
     setInputValue(newValue)
   }
 
@@ -46,7 +45,6 @@ export default function TaskItem({ name, checked, id }) {
     tasks[index] = objectSelected
     const newTasks = [...tasks];
     setTasks(newTasks)
-    console.log(newTasks)
   }
 
   const handleDelete = (event) => {
@@ -67,16 +65,13 @@ export default function TaskItem({ name, checked, id }) {
             <IconButton iconProps={{ iconName: 'Delete' }} onClick={handleDelete} ariaLabel="Delete" data-id={id}/>
           </Stack>
         </Stack>
-        :
+      :
         <Stack horizontal verticalAlign="center">
           <TextField
               placeholder="Edit tasks"
-              onFocus={() => console.log('onFocus called')}
-              onBlur={() => console.log('onBlur called')}
               onChange={handleTextfieldChange}
               className="borderRadius0"
               value={inputValue.name}
-              
               onKeyPress={(e) =>{ 
                 if(e.key==='Enter'){
                   handleSave()
@@ -84,7 +79,6 @@ export default function TaskItem({ name, checked, id }) {
               }
           />
           <PrimaryButton 
-              //text="Save" 
               iconProps={{ iconName: 'Save' }}
               className="borderRadius0"
               onClick={handleSave} 

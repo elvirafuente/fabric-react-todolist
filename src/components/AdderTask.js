@@ -24,8 +24,6 @@ export default function AdderTask() {
         <Stack horizontal >
             <SearchBox
                 placeholder="Add tasks"
-                onFocus={() => console.log('onFocus called')}
-                onBlur={() => console.log('onBlur called')}
                 onChange={e => setInputValue(e.target.value)}
                 iconProps={{ iconName: 'TaskSolid' }}
                 className="borderRadius0"

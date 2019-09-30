@@ -8,7 +8,6 @@ export default function FilterList() {
   const handleFilter = event =>{
     const target = event.props.headerText
     setFilter(target)
-    console.log(filter)
   }
 
   return (
